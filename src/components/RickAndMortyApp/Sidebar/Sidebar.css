@@ -1,0 +1,25 @@
+.Sidebar {
+  display: flex;
+  top: 20px;
+  left: 20px;
+  height: 900px;
+  width: 50px;
+  transition: all 0.3s ease;
+  margin: 5px;
+  background-color: rgb(240, 240, 240);
+}
+
+.btnSidebar {
+  width: 40px;
+  height: 40px;
+}
+
+.Sidebar.open {
+  height: 100%;
+  width: 300px
+}
+
+.Sidebar.closed {
+  height: 50px;
+  width: 50px;
+}
