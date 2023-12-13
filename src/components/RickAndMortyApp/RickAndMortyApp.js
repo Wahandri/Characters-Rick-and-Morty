@@ -91,7 +91,7 @@ export default function RickAndMortyApp() {
   return (
     <div className="RickAndMortyApp">
       <Header onSearch={setSearchTerm} characters={characters} />
-      <div className="main-content">
+      <div className="main-content Characters">
         <Characters characters={characters} isLoading={isLoading} />
       </div>
     </div>

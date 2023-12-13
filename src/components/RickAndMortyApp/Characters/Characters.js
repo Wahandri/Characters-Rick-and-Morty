@@ -7,13 +7,14 @@ import "./Characters.css";
 
 export default function Characters({ characters = [] }) {
   return (
-    <div className="bodyCharacters">
+    <div className="bodyCharacters ">
       {characters.map((item, index) => (
         <div className="boxCharacters" key={index}>
-          <div className="cardCharacter ">
+          
+          <div className="cardCharacter bg-myColor">
             <img className="imgCharacter" src={item.image} alt={item.name} />
-            <div className="centerCol">
-              <h2 className="">{item.name}</h2>
+            <div className="boxDescription ">
+              <h2 className="myColor1">{item.name}</h2>
               <hr className="hr" />
               <h4 className="">
                 Species:{" "}

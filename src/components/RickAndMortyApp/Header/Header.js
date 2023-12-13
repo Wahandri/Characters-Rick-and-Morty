@@ -1,10 +1,14 @@
+import "./Header.css";
+import fondoStars from "../../../images/Rick_and_Morty.svg.png"
+
 export default function Header({ onSearch }) {
   return (
-    <nav className="navbar bg-secondary bg-gradient bg-opacity-50">
+    <nav className="navbar boxHeader">
       <div className="container-fluid">
-        <a className="navbar-brand text-uppercase" href="/">
-          Rick and Morty
+        <a className="colorW navbar-brand text-uppercase" href="/">
+          Home
         </a>
+        <img width="250px" src={fondoStars} alt="" />
         <form
           className="d-flex"
           role="search"

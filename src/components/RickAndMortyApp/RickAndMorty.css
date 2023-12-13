@@ -1,12 +1,19 @@
 .RickAndMortyApp {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  background-color: #043f47;
 }
+
+/* rgb(70, 170, 163) */
 
 .bodyProject {
   display: flex;
   height: 100vh;
   width: 100vw;
+}
+
+.Characters {
+  margin-top: 100px;
 }
 
 .long {
