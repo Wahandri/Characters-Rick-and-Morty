@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./RickAndMorty.css";
 import Header from "./Header/Header";
 import Characters from "./Characters/Characters";
-import Sidebar from "./Sidebar/Sidebar";
 
 export default function RickAndMortyApp() {
   // Estado para almacenar los personajes
@@ -38,8 +37,8 @@ export default function RickAndMortyApp() {
   const fetchCharacters = async (url, search = "", page = 1) => {
     setIsLoading(true);
     let apiUrl = search
-      ? `${url}?name=${search}&page=${page}`
-      : `${url}?page=${page}`;
+      ? `https://rickandmortyapi.com/api/character?name=${search}&page=${page}`
+      : `https://rickandmortyapi.com/api/character?page=${page}`;
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
@@ -55,7 +54,7 @@ export default function RickAndMortyApp() {
 
   useEffect(() => {
     // Obtener los personajes al cambiar el término de búsqueda
-    if (searchTerm && searchTerm.valueOf().length > 2) {
+    if (searchTerm) {
       setCharacters([]);
       const fetchData = async () => {
         await fetchCharacters(initialUrl, searchTerm, 1);
@@ -91,9 +90,8 @@ export default function RickAndMortyApp() {
 
   return (
     <div className="RickAndMortyApp">
-      <Header setSearchTerm={setSearchTerm} />
+      <Header onSearch={setSearchTerm} characters={characters} />
       <div className="main-content">
-        <Sidebar characters={characters} />
         <Characters characters={characters} isLoading={isLoading} />
       </div>
     </div>

@@ -1,8 +1,6 @@
-import "./Header.css";
-
 export default function Header({ onSearch }) {
   return (
-    <nav className="Header navbar bg-secondary bg-gradient bg-opacity-50">
+    <nav className="navbar bg-secondary bg-gradient bg-opacity-50">
       <div className="container-fluid">
         <a className="navbar-brand text-uppercase" href="/">
           Rick and Morty
