@@ -37,6 +37,8 @@ export default function Characters({ characters = [] }) {
                 Origin:{" "}
                 {item.origin.name === "unknown" ? (
                   <img width="20px" src={statusUnknown} alt="" />
+                ) : item.origin.name === "Earth (Replacement Dimension)" ? (
+                  "Replacement Dimension"
                 ) : (
                   item.origin.name
                 )}
