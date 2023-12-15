@@ -25,7 +25,6 @@ export default function RickAndMortyApp() {
     if (!hasMounted.current) {
       const fetchData = async () => {
         await fetchCharacters(initialUrl, "", 1);
-        console.log("RickAndMortyApp montado");
       };
       fetchData();
 
@@ -34,10 +33,10 @@ export default function RickAndMortyApp() {
   }, []);
 
   // Función para obtener los personajes
-  const fetchCharacters = async (url, search = "", page = 1) => {
+  const fetchCharacters = async (term = "", page = 1) => {
     setIsLoading(true);
-    let apiUrl = search
-      ? `https://rickandmortyapi.com/api/character?name=${search}&page=${page}`
+    let apiUrl = term
+      ? `https://rickandmortyapi.com/api/character?name=${term}&page=${page}`
       : `https://rickandmortyapi.com/api/character?page=${page}`;
     try {
       const response = await fetch(apiUrl);
@@ -53,14 +52,11 @@ export default function RickAndMortyApp() {
   };
 
   useEffect(() => {
-    // Obtener los personajes al cambiar el término de búsqueda
-    if (searchTerm) {
-      setCharacters([]);
-      const fetchData = async () => {
-        await fetchCharacters(initialUrl, searchTerm, 1);
-      };
-      fetchData();
-    }
+    setCharacters([]);
+    const fetchData = async () => {
+      await fetchCharacters(searchTerm, 1);
+    };
+    fetchData();
   }, [searchTerm]);
 
   useEffect(() => {
@@ -90,10 +86,12 @@ export default function RickAndMortyApp() {
 
   return (
     <div className="RickAndMortyApp">
-      <Header onSearch={setSearchTerm} characters={characters} />
-      <div className="main-content Characters">
-        <Characters characters={characters} isLoading={isLoading} />
-      </div>
+      <Header
+        onSearch={setSearchTerm}
+        fetchCharacters={fetchCharacters}
+        characters={characters}
+      />
+      <Characters characters={characters} isLoading={isLoading} />
     </div>
   );
 }

@@ -1,7 +1,5 @@
 import male from "../../../images/masculino.png";
 import female from "../../../images/femenino.png";
-import live from "../../../images/circleGreen.png";
-import dead from "../../../images/circleRed.png";
 import statusUnknown from "../../../images/pregunta.png";
 import "./Characters.css";
 
@@ -15,7 +13,7 @@ export default function Characters({ characters = [] }) {
           </div>
           <div className="paddingColor">
             <div className="boxDescription ">
-              <h4 className="myColor1">{item.name}</h4>
+              <h4 className="myColor1 shadowText">{item.name}</h4>
               <hr className="hr" />
               <h6 className="">
                 Species:{" "}
@@ -38,7 +36,7 @@ export default function Characters({ characters = [] }) {
                 {item.origin.name === "unknown" ? (
                   <img width="20px" src={statusUnknown} alt="" />
                 ) : item.origin.name === "Earth (Replacement Dimension)" ? (
-                  "Replacement Dimension"
+                  "Dimension changed"
                 ) : (
                   item.origin.name
                 )}
@@ -46,9 +44,9 @@ export default function Characters({ characters = [] }) {
               <h6 className="">
                 Status:{" "}
                 {item.status === "Alive" ? (
-                  <img width="20px" src={live} alt="" />
+                  <span className="myColor1">{item.status}</span>
                 ) : item.status === "Dead" ? (
-                  <img width="20px" src={dead} alt="" />
+                  <span className="myColor2">{item.status}</span>
                 ) : (
                   <img width="20px" src={statusUnknown} alt="" />
                 )}
